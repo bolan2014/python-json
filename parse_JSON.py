@@ -2,13 +2,12 @@
 
 import json
 
-f = file('temp.json')
-s = json.load(f)
+fr = open('spark-driver.json', 'r')
+data = json.load(fr)
 
 # print s
-# print s['name']
+print data['kind']
+for i in data:
+    print "%s: %s" % (i, data[i])
 
-for i in s:
-	print "%s: %s" % (i, s[i])
-
-f.close()
+fr.close()
