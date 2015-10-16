@@ -2,12 +2,16 @@
 
 import json
 
+#read json
 fr = open('spark-driver.json', 'r')
 data = json.load(fr)
 
-# print s
-print data['kind']
-for i in data:
-    print "%s: %s" % (i, data[i])
-
 fr.close()
+
+#write json
+fw = open('spark-driver.json', 'w')
+data['spec']['containers'][0]['name'] = 'spark'
+print data
+json.dump(data, fw)
+
+fw.close()
